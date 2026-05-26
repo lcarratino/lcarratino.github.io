@@ -1,0 +1,217 @@
+/* Custom polish layer — loaded after slides.css to override cleanly. */
+
+:root {
+  --accent: #1f6f8b;        /* calm medical teal-blue */
+  --accent-dark: #16505f;
+  --accent-soft: #e9f2f5;   /* very light tint for surfaces */
+  --ink: #2b2b2b;
+  --muted: #6b6b6b;
+  --line: #e4e8ea;
+}
+
+/* ---- Top-left wordmark (replaces broken external SVG logo) ---- */
+.brand-wordmark {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.panel.top .left a:hover .brand-wordmark { color: var(--accent); }
+
+/* ---- Hero tint (home slide only) ---- */
+#home-section.whiteSlide {
+  background: linear-gradient(180deg, #ffffff 0%, var(--accent-soft) 100%);
+}
+
+/* ---- Headings ---- */
+.slide .content h1 { color: var(--ink); letter-spacing: 0.4px; }
+
+/* Accent underline rule under section headings */
+.section-heading { position: relative; padding-bottom: 12px; }
+.section-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 56px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+/* ---- Credentials block under the name ---- */
+.credentials { margin-top: 4px; }
+.credentials h3 {
+  font-size: 22px !important;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 2px;
+  color: var(--muted);
+}
+.credentials h3:last-child {
+  font-weight: 500;
+  color: var(--accent);
+}
+
+/* ---- Profile photo ---- */
+.thumbnail-74 img {
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(31, 111, 139, 0.18);
+  outline: 4px solid #fff;
+  outline-offset: -4px;
+  border: 1px solid var(--line);
+}
+
+/* ---- Contact card ---- */
+.contact-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 22px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
+  max-width: 520px;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.contact-item:last-child { padding-bottom: 0; border-bottom: none; }
+.contact-item:first-child { padding-top: 0; }
+.contact-item .contact-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 22px;
+  line-height: 1;
+}
+.contact-body { display: flex; flex-direction: column; }
+.contact-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.contact-value {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--ink);
+}
+.contact-note { font-size: 14px; color: var(--muted); font-weight: 300; }
+
+/* Clickable phone / email */
+a.contact-link {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+a.contact-link:hover,
+a.contact-link:focus {
+  color: var(--accent-dark);
+  border-bottom-color: var(--accent-dark);
+}
+
+/* ---- Timeline (Formazione / Esperienza) ---- */
+.timeline {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0 0 0 26px;
+  border-left: 2px solid var(--line);
+}
+.tl-item {
+  position: relative;
+  padding: 0 0 26px 8px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -35px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 3px #fff;
+}
+.tl-date {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.tl-desc {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* ---- Utilità PDF cards ---- */
+.util-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  max-width: 620px;
+}
+.util-list li { margin-bottom: 12px; }
+.util-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.util-card:hover,
+.util-card:focus {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 22px rgba(31, 111, 139, 0.16);
+}
+.util-icon {
+  color: var(--accent);
+  font-size: 26px;
+  flex: 0 0 auto;
+}
+.util-title {
+  flex: 1 1 auto;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.util-ext {
+  flex: 0 0 auto;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
