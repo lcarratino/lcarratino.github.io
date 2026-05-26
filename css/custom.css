@@ -64,6 +64,9 @@
   border: 1px solid var(--line);
 }
 
+/* Email decoy separator — readable "@" instead of "(@)" */
+.em::after { content: '@'; margin: 0 4px; }
+
 /* ---- Contact card ---- */
 .contact-list {
   list-style: none;
@@ -74,6 +77,8 @@
   border-radius: 14px;
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.06);
   max-width: 520px;
+  width: 100%;
+  box-sizing: border-box;
 }
 .contact-item {
   display: flex;
@@ -97,7 +102,7 @@
   font-size: 22px;
   line-height: 1;
 }
-.contact-body { display: flex; flex-direction: column; }
+.contact-body { display: flex; flex-direction: column; min-width: 0; }
 .contact-label {
   font-size: 12px;
   font-weight: 600;
@@ -110,6 +115,8 @@
   font-size: 20px;
   font-weight: 400;
   color: var(--ink);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .contact-note { font-size: 14px; color: var(--muted); font-weight: 300; }
 
@@ -214,4 +221,18 @@ a.contact-link:focus {
   background: var(--accent-soft);
   padding: 4px 10px;
   border-radius: 6px;
+}
+
+/* ---- Tighten vertical space on content-light sections ---- */
+/* Framework forces .scroll .container{height:100vh}; ID selectors win and
+   let these sections size to their content instead of a full empty screen. */
+#formazione-section .container,
+#esperienza-section .container,
+#utility-section .container { height: auto; }
+
+#formazione-section .wrap,
+#esperienza-section .wrap,
+#utility-section .wrap {
+  padding-top: 104px;
+  padding-bottom: 72px;
 }
