@@ -115,8 +115,8 @@
   font-size: 20px;
   font-weight: 400;
   color: var(--ink);
-  overflow-wrap: anywhere;
-  word-break: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 .contact-note { font-size: 14px; color: var(--muted); font-weight: 300; }
 
